@@ -27,6 +27,16 @@ function route() {
 }
 
 window.addEventListener('hashchange', route);
+
+/* Indikator server di panel admin mengikuti hasil panggilan API terakhir */
+Api.onStatus = ok => {
+  if (document.body.dataset.view === 'admin' && Admin.session) Admin.setServer(ok);
+};
+
+/* Koneksi kembali setelah offline: muat ulang data admin otomatis */
+window.addEventListener('online', () => {
+  if (document.body.dataset.view === 'admin' && Admin.session) Admin.bootstrap();
+});
 document.addEventListener('DOMContentLoaded', () => {
   if (APP_CONFIG.IS_DEMO) {
     const w = $('#config-warning');

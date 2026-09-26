@@ -117,8 +117,6 @@ const Admin = {
       this.showLogin();
       return;
     }
-    const msg = String(e && e.message || '');
-    if (/terhubung ke server|tidak mengirim data JSON/.test(msg)) this.setServer(false);
     toast((prefix ? prefix + ': ' : '') + (e && e.message ? e.message : e), 'error', 5000);
   },
 
