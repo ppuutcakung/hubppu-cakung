@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Satu pintu untuk semua layanan PPU Cakung.">
+  <title>HubPPU Cakung</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230EA5E9'/%3E%3Ccircle cx='32' cy='32' r='7' fill='white'/%3E%3Cg stroke='white' stroke-width='4' stroke-linecap='round'%3E%3Cpath d='M32 14v8M32 42v8M14 32h8M42 32h8'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ========== IKON (SVG sprite) ========== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-hub" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="4" r="1.6"/><circle cx="12" cy="20" r="1.6"/><circle cx="4.5" cy="8" r="1.6"/><circle cx="19.5" cy="8" r="1.6"/><circle cx="4.5" cy="16" r="1.6"/><circle cx="19.5" cy="16" r="1.6"/><path d="M12 5.6V9M12 15v3.4M6 8.9l3.4 1.8M14.6 13.3 18 15.1M6 15.1l3.4-1.8M14.6 10.7 18 8.9"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-15.5 6.2L3 16M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M3 21v-5h5"/></symbol>
+    <symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><circle cx="5" cy="5" r="1.5"/><circle cx="12" cy="5" r="1.5"/><circle cx="19" cy="5" r="1.5"/><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/><circle cx="5" cy="19" r="1.5"/><circle cx="12" cy="19" r="1.5"/><circle cx="19" cy="19" r="1.5"/></symbol>
+    <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 11 15-6v14L3 13zM11.6 16.8a3 3 0 1 1-5.8-1.6M21 9v6"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 9.8-9.8M17 6l3 3M14.5 8.5l2 2"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M17 3a2.8 2.8 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6M10 11v6M14 11v6"/></symbol>
+    <symbol id="i-grip" viewBox="0 0 24 24"><circle cx="9" cy="6" r="1.3"/><circle cx="15" cy="6" r="1.3"/><circle cx="9" cy="12" r="1.3"/><circle cx="15" cy="12" r="1.3"/><circle cx="9" cy="18" r="1.3"/><circle cx="15" cy="18" r="1.3"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="m22 7-8.5 8.5-5-5L2 17M16 7h6v6"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-pointer" viewBox="0 0 24 24"><path d="m9 9 5 12 1.8-5.2L21 14zM7.2 2.2 8 5.1M5.1 8l-2.9-.8M14 4.1 12 6.2M6.2 12l-2.1 2"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============================================================
+     HALAMAN PUBLIK (mobile-first)
+     ============================================================ -->
+<div id="view-public" class="view" hidden>
+  <header class="pub-header">
+    <div class="pub-header-inner">
+      <div class="brand">
+        <div class="brand-logo" id="pub-logo"><svg class="ic"><use href="#i-hub"/></svg></div>
+        <div class="brand-text">
+          <h1 id="pub-name">HubPPU Cakung</h1>
+          <p id="pub-tagline">Satu pintu untuk semua layanan PPU Cakung</p>
+        </div>
+      </div>
+      <button class="icon-btn" id="btn-share" type="button" aria-label="Bagikan tautan hub">
+        <svg class="ic"><use href="#i-share"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="pub-main">
+    <label class="search-bar">
+      <svg class="ic"><use href="#i-search"/></svg>
+      <input type="search" id="pub-search" placeholder="Cari layanan…" autocomplete="off" aria-label="Cari layanan">
+      <button type="button" class="search-clear" id="pub-search-clear" aria-label="Hapus pencarian" hidden><svg class="ic"><use href="#i-x"/></svg></button>
+    </label>
+
+    <section class="hero" id="hero" aria-roledescription="carousel" aria-label="Informasi terkini" hidden>
+      <div class="hero-track" id="hero-track"></div>
+      <div class="hero-foot">
+        <div class="hero-dots" id="hero-dots" role="tablist"></div>
+        <span class="hero-note"><svg class="ic"><use href="#i-refresh"/></svg> Pembaruan berkala</span>
+      </div>
+    </section>
+
+    <section class="apps" aria-labelledby="apps-title">
+      <div class="apps-head">
+        <h2 id="apps-title">Aplikasi Kami</h2>
+        <span class="pill-soft" id="app-count">Memuat…</span>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Filter kategori"></div>
+      <div class="app-grid" id="app-grid" aria-live="polite"></div>
+      <div class="empty-state" id="app-empty" hidden></div>
+    </section>
+
+    <a class="contact-banner" id="contact-banner" target="_blank" rel="noopener" hidden>
+      <div>
+        <strong>Butuh bantuan langsung?</strong>
+        <span id="contact-text">Tim piket PPU Cakung siap membantu.</span>
+      </div>
+      <span class="contact-btn"><svg class="ic"><use href="#i-phone"/></svg> Kontak</span>
+    </a>
+  </main>
+
+  <footer class="pub-footer">
+    <p class="pub-values">Cepat <i></i> Terintegrasi <i></i> Transparan</p>
+    <p id="pub-footer-text">© 2026 PPU Cakung.</p>
+    <a href="#/admin" class="admin-link"><svg class="ic"><use href="#i-lock"/></svg> Login Admin</a>
+  </footer>
+</div>
+
+<!-- ============================================================
+     LOGIN ADMIN
+     ============================================================ -->
+<div id="view-login" class="view auth-view" hidden>
+  <div class="auth-card">
+    <div class="auth-brand">
+      <div class="brand-logo lg" id="login-logo"><svg class="ic"><use href="#i-hub"/></svg></div>
+      <h1>Panel Super Admin</h1>
+      <p id="login-hubname">HubPPU Cakung</p>
+    </div>
+    <form id="login-form" novalidate>
+      <label class="field">
+        <span>Username</span>
+        <input type="text" name="username" autocomplete="username" required>
+      </label>
+      <label class="field">
+        <span>Password</span>
+        <div class="input-with-btn">
+          <input type="password" name="password" autocomplete="current-password" required>
+          <button type="button" class="icon-btn sm" data-toggle-pw aria-label="Tampilkan password"><svg class="ic"><use href="#i-eye"/></svg></button>
+        </div>
+      </label>
+      <p class="form-error" id="login-error" role="alert" hidden></p>
+      <button type="submit" class="btn btn-primary btn-block" id="login-submit">Masuk</button>
+    </form>
+    <a href="#/" class="auth-back">Kembali ke halaman publik</a>
+  </div>
+</div>
+
+<!-- ============================================================
+     PANEL ADMIN (desktop-first)
+     ============================================================ -->
+<div id="view-admin" class="view admin-view" hidden>
+  <aside class="sidebar" id="sidebar" aria-label="Menu admin">
+    <div class="sidebar-brand">
+      <div class="brand-logo" id="side-logo"><svg class="ic"><use href="#i-hub"/></svg></div>
+      <div>
+        <strong id="side-name">HubPPU Cakung</strong>
+        <span>Panel Super Admin</span>
+      </div>
+    </div>
+    <nav class="side-nav">
+      <a href="#/admin/dashboard" data-nav="dashboard"><svg class="ic"><use href="#i-dashboard"/></svg><span>Dashboard</span></a>
+      <a href="#/admin/aplikasi" data-nav="aplikasi"><svg class="ic"><use href="#i-grid"/></svg><span>Kelola Aplikasi</span><b class="nav-badge" id="badge-apps">0</b></a>
+      <a href="#/admin/flyer" data-nav="flyer"><svg class="ic"><use href="#i-megaphone"/></svg><span>Flyer &amp; Pengumuman</span><b class="nav-badge" id="badge-flyers">0</b></a>
+      <a href="#/admin/pengaturan" data-nav="pengaturan"><svg class="ic"><use href="#i-settings"/></svg><span>Pengaturan Umum</span></a>
+      <a href="#/admin/log" data-nav="log"><svg class="ic"><use href="#i-chart"/></svg><span>Log Aktivitas</span></a>
+    </nav>
+    <div class="side-bottom">
+      <button type="button" class="side-action" id="btn-change-pw"><svg class="ic"><use href="#i-key"/></svg>Ganti Password</button>
+      <button type="button" class="side-action danger" id="btn-logout"><svg class="ic"><use href="#i-logout"/></svg>Keluar</button>
+      <a href="#/" class="side-action" target="_blank"><svg class="ic"><use href="#i-external"/></svg>Lihat Halaman Publik</a>
+      <small class="side-version">HubPPU Cakung v1.1</small>
+    </div>
+  </aside>
+  <div class="scrim" id="sidebar-scrim"></div>
+
+  <div class="admin-main">
+    <header class="topbar">
+      <button type="button" class="icon-btn menu-btn" id="btn-menu" aria-label="Buka menu"><svg class="ic"><use href="#i-menu"/></svg></button>
+      <div class="topbar-title">
+        <h1 id="page-title">Dashboard</h1>
+        <p id="page-sub">Ringkasan pemakaian portal</p>
+      </div>
+      <span class="chip-date" id="chip-month"><svg class="ic"><use href="#i-calendar"/></svg><span></span></span>
+      <span class="server-chip" id="server-chip"><i></i><span>Menghubungkan…</span></span>
+      <div class="admin-chip">
+        <span class="avatar" id="admin-avatar">SA</span>
+        <span class="admin-chip-text"><strong id="admin-name">Super Admin</strong><small>PPU Cakung</small></span>
+      </div>
+    </header>
+
+    <main class="admin-content">
+      <!-- DASHBOARD -->
+      <section class="page" data-page="dashboard">
+        <div class="stat-grid">
+          <article class="stat-card">
+            <div class="stat-head"><span>Total klik bulan ini</span><i class="stat-ic"><svg class="ic"><use href="#i-trend"/></svg></i></div>
+            <div class="stat-value"><strong id="st-total">–</strong><small>klik</small></div>
+            <p class="stat-foot" id="st-total-foot">&nbsp;</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-head"><span>Aplikasi terpopuler</span><i class="stat-ic amber"><svg class="ic"><use href="#i-star"/></svg></i></div>
+            <div class="stat-value"><strong class="stat-name" id="st-top">–</strong></div>
+            <p class="stat-foot" id="st-top-foot">&nbsp;</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-head"><span>Status aplikasi</span><i class="stat-ic green"><svg class="ic"><use href="#i-check"/></svg></i></div>
+            <div class="stat-value"><strong id="st-status">–</strong><small class="txt-green">tampil</small></div>
+            <p class="stat-foot" id="st-status-foot">&nbsp;</p>
+          </article>
+          <article class="stat-card">
+            <div class="stat-head"><span>Klik hari ini</span><i class="stat-ic violet"><svg class="ic"><use href="#i-pointer"/></svg></i></div>
+            <div class="stat-value"><strong id="st-today">–</strong><small>klik</small></div>
+            <p class="stat-foot" id="st-today-foot">&nbsp;</p>
+          </article>
+        </div>
+
+        <div class="chart-grid">
+          <article class="card chart-card">
+            <div class="card-head">
+              <div>
+                <h2>Rekap klik per aplikasi</h2>
+                <p>Jumlah klik setiap kartu pada bulan terpilih</p>
+              </div>
+              <div class="card-tools">
+                <select id="sel-month" class="select" aria-label="Pilih bulan"></select>
+                <select id="sel-year" class="select" aria-label="Pilih tahun"></select>
+              </div>
+            </div>
+            <div class="bar-list" id="bar-list"></div>
+            <div class="card-foot">
+              <span id="avg-daily">Rata-rata harian: –</span>
+              <button type="button" class="link-btn" id="btn-csv"><svg class="ic"><use href="#i-download"/></svg>Unduh CSV</button>
+            </div>
+          </article>
+
+          <article class="card chart-card">
+            <div class="card-head">
+              <div>
+                <h2>Tren klik bulanan</h2>
+                <p>Total klik seluruh aplikasi, Januari–Desember</p>
+              </div>
+              <div class="card-tools">
+                <select id="sel-trend-year" class="select" aria-label="Pilih tahun tren"></select>
+              </div>
+            </div>
+            <div class="column-chart" id="column-chart" role="img" aria-label="Grafik batang total klik per bulan"></div>
+            <div class="card-foot">
+              <span class="legend"><i class="lg-now"></i>Bulan berjalan <i class="lg-past"></i>Historis</span>
+              <strong id="total-ytd">Total setahun: –</strong>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- KELOLA APLIKASI -->
+      <section class="page" data-page="aplikasi" hidden>
+        <article class="card">
+          <div class="card-head wrap">
+            <div>
+              <h2>Daftar aplikasi &amp; urutan tampil</h2>
+              <p>Seret <svg class="ic inline"><use href="#i-grip"/></svg> atau pakai tombol panah untuk mengubah urutan di halaman publik</p>
+            </div>
+            <div class="card-tools">
+              <label class="search-sm"><svg class="ic"><use href="#i-search"/></svg><input type="search" id="app-search" placeholder="Cari aplikasi atau kategori…"></label>
+              <button type="button" class="btn btn-primary" id="btn-add-app"><svg class="ic"><use href="#i-plus"/></svg>Tambah Aplikasi</button>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr>
+                <th class="col-order">Urut</th><th>Gambar</th><th>Nama aplikasi</th><th>Kategori</th><th>Link tujuan</th><th>Status portal</th><th class="num" title="Jumlah klik bulan ini">Klik</th><th class="col-act">Aksi</th>
+              </tr></thead>
+              <tbody id="app-tbody"></tbody>
+            </table>
+          </div>
+          <p class="table-note" id="app-note"></p>
+        </article>
+      </section>
+
+      <!-- FLYER -->
+      <section class="page" data-page="flyer" hidden>
+        <article class="card">
+          <div class="card-head wrap">
+            <div>
+              <h2>Flyer &amp; pengumuman</h2>
+              <p>Flyer tampil sebagai slider di atas halaman publik, bergeser tiap 5 detik</p>
+            </div>
+            <div class="card-tools">
+              <button type="button" class="btn btn-primary" id="btn-add-flyer"><svg class="ic"><use href="#i-plus"/></svg>Tambah Flyer</button>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr>
+                <th class="col-order">Urut</th><th>Gambar</th><th>Judul</th><th>Periode tampil</th><th>Status</th><th class="col-act">Aksi</th>
+              </tr></thead>
+              <tbody id="flyer-tbody"></tbody>
+            </table>
+          </div>
+          <p class="table-note" id="flyer-note"></p>
+        </article>
+      </section>
+
+      <!-- PENGATURAN -->
+      <section class="page" data-page="pengaturan" hidden>
+        <div class="settings-grid">
+          <article class="card">
+            <div class="card-head"><div><h2>Identitas hub</h2><p>Perubahan langsung berlaku di halaman publik setelah disimpan</p></div></div>
+            <form id="settings-form" class="form-stack" novalidate>
+              <label class="field"><span>Nama hub <em class="counter" data-for="namaHub">0/40</em></span><input name="namaHub" maxlength="40" required></label>
+              <label class="field"><span>Tagline <em class="counter" data-for="tagline">0/100</em></span><input name="tagline" maxlength="100"></label>
+              <div class="field">
+                <span>Logo</span>
+                <div class="logo-row">
+                  <div class="brand-logo lg" id="set-logo-preview"><svg class="ic"><use href="#i-hub"/></svg></div>
+                  <div class="logo-actions">
+                    <label class="btn btn-soft"><input type="file" id="set-logo-file" accept="image/png,image/jpeg,image/webp" hidden><svg class="ic"><use href="#i-image"/></svg>Pilih logo</label>
+                    <button type="button" class="btn btn-ghost" id="set-logo-remove">Hapus logo</button>
+                    <small>PNG/JPG/WebP persegi, dikecilkan otomatis ke 256 px</small>
+                  </div>
+                </div>
+              </div>
+              <label class="field"><span>Teks footer <em class="counter" data-for="teksFooter">0/160</em></span><input name="teksFooter" maxlength="160"></label>
+              <div class="field-row">
+                <label class="field"><span>Warna utama</span>
+                  <div class="color-row"><input type="color" name="warnaUtamaPicker" aria-label="Pilih warna"><input name="warnaUtama" maxlength="7" pattern="#[0-9a-fA-F]{6}"></div>
+                </label>
+                <label class="field"><span>Nomor WhatsApp kontak</span><input name="kontakWA" inputmode="tel" placeholder="0812xxxxxxx (kosongkan untuk menyembunyikan)"></label>
+              </div>
+              <label class="field"><span>Teks banner kontak <em class="counter" data-for="kontakTeks">0/100</em></span><input name="kontakTeks" maxlength="100"></label>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" id="settings-save">Simpan Pengaturan</button>
+              </div>
+            </form>
+          </article>
+          <article class="card preview-card">
+            <div class="card-head"><div><h2>Pratinjau halaman publik</h2><p>Tampilan di layar HP</p></div></div>
+            <div class="phone">
+              <div class="phone-screen" id="settings-preview"></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- LOG -->
+      <section class="page" data-page="log" hidden>
+        <article class="card">
+          <div class="card-head wrap">
+            <div><h2>Log aktivitas admin</h2><p>Terbaru di atas · 50 entri per halaman</p></div>
+            <div class="card-tools"><button type="button" class="btn btn-ghost" id="btn-log-refresh"><svg class="ic"><use href="#i-refresh"/></svg>Muat ulang</button></div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>Waktu</th><th>Aksi</th><th>Keterangan</th><th>Target</th></tr></thead>
+              <tbody id="log-tbody"></tbody>
+            </table>
+          </div>
+          <div class="pager">
+            <span id="log-info"></span>
+            <div>
+              <button type="button" class="btn btn-ghost sm" id="log-prev">Sebelumnya</button>
+              <span class="pager-num" id="log-page">1</span>
+              <button type="button" class="btn btn-ghost sm" id="log-next">Selanjutnya</button>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="admin-footer">
+      <span><strong id="foot-name">HubPPU Cakung</strong> · Panel pengelola</span>
+      <a href="#/" target="_blank">Buka halaman publik</a>
+    </footer>
+  </div>
+</div>
+
+<!-- ============================================================
+     MODAL
+     ============================================================ -->
+<dialog class="modal modal-wide" id="modal-app" aria-labelledby="modal-app-title">
+  <form id="app-form" novalidate>
+    <header class="modal-head"><h2 id="modal-app-title">Tambah aplikasi</h2><button type="button" class="icon-btn" data-close aria-label="Tutup"><svg class="ic"><use href="#i-x"/></svg></button></header>
+    <div class="modal-body two-col">
+      <div class="form-stack">
+        <label class="field"><span>Nama aplikasi <b>*</b> <em class="counter" data-for="nama">0/40</em></span><input name="nama" maxlength="40" required></label>
+        <label class="field"><span>Link tujuan <b>*</b></span><input name="link" type="url" placeholder="https://" required></label>
+        <label class="field"><span>Deskripsi singkat <em class="counter" data-for="deskripsi">0/120</em></span><textarea name="deskripsi" maxlength="120" rows="3"></textarea></label>
+        <div class="field-row">
+          <label class="field"><span>Kategori</span>
+            <select name="kategori" class="select full"><option value="">Tanpa kategori</option><option>Tim Internal</option><option>UMKM</option><option>Stakeholder</option><option>Umum</option></select>
+          </label>
+          <label class="field"><span>Urutan</span><input name="urutan" type="number" min="1" step="1"></label>
+        </div>
+        <fieldset class="field segmented"><legend>Status</legend>
+          <label><input type="radio" name="status" value="Tampil" checked><span>Tampil</span></label>
+          <label><input type="radio" name="status" value="Sembunyi"><span>Sembunyi</span></label>
+        </fieldset>
+        <p class="form-error" id="app-form-error" role="alert" hidden></p>
+      </div>
+      <div class="upload-col">
+        <span class="field-label">Gambar kartu <b>*</b></span>
+        <label class="dropzone" id="app-drop">
+          <input type="file" accept="image/png,image/jpeg,image/webp" id="app-file" hidden>
+          <svg class="ic"><use href="#i-image"/></svg>
+          <strong>Pilih atau seret gambar</strong>
+          <small>JPG/PNG/WebP · dikompres otomatis ke lebar 600 px · rasio 4:3 disarankan</small>
+        </label>
+        <p class="upload-info" id="app-file-info"></p>
+        <span class="field-label">Pratinjau kartu</span>
+        <div class="preview-slot" id="app-preview"></div>
+      </div>
+    </div>
+    <footer class="modal-foot"><button type="button" class="btn btn-ghost" data-close>Batal</button><button type="submit" class="btn btn-primary">Simpan Aplikasi</button></footer>
+  </form>
+</dialog>
+
+<dialog class="modal modal-wide" id="modal-flyer" aria-labelledby="modal-flyer-title">
+  <form id="flyer-form" novalidate>
+    <header class="modal-head"><h2 id="modal-flyer-title">Tambah flyer</h2><button type="button" class="icon-btn" data-close aria-label="Tutup"><svg class="ic"><use href="#i-x"/></svg></button></header>
+    <div class="modal-body two-col">
+      <div class="form-stack">
+        <label class="field"><span>Judul <b>*</b> <em class="counter" data-for="judul">0/80</em></span><input name="judul" maxlength="80" required></label>
+        <label class="field"><span>Link tujuan (opsional)</span><input name="link" type="url" placeholder="https://"></label>
+        <div class="field-row">
+          <label class="field"><span>Mulai tampil</span><input name="tanggalMulai" type="date"></label>
+          <label class="field"><span>Selesai tampil</span><input name="tanggalSelesai" type="date"></label>
+        </div>
+        <div class="field-row">
+          <fieldset class="field segmented"><legend>Status</legend>
+            <label><input type="radio" name="status" value="Tampil" checked><span>Tampil</span></label>
+            <label><input type="radio" name="status" value="Sembunyi"><span>Sembunyi</span></label>
+          </fieldset>
+          <label class="field"><span>Urutan</span><input name="urutan" type="number" min="1" step="1"></label>
+        </div>
+        <p class="hint">Kosongkan tanggal agar flyer selalu tampil. Setelah tanggal selesai, flyer tersembunyi otomatis.</p>
+        <p class="form-error" id="flyer-form-error" role="alert" hidden></p>
+      </div>
+      <div class="upload-col">
+        <span class="field-label">Gambar flyer <b>*</b></span>
+        <label class="dropzone" id="flyer-drop">
+          <input type="file" accept="image/png,image/jpeg,image/webp" id="flyer-file" hidden>
+          <svg class="ic"><use href="#i-image"/></svg>
+          <strong>Pilih atau seret gambar</strong>
+          <small>Rasio 16:9 disarankan · dikompres otomatis ke lebar 1080 px</small>
+        </label>
+        <p class="upload-info" id="flyer-file-info"></p>
+        <span class="field-label">Pratinjau di slider</span>
+        <div class="flyer-preview" id="flyer-preview"></div>
+      </div>
+    </div>
+    <footer class="modal-foot"><button type="button" class="btn btn-ghost" data-close>Batal</button><button type="submit" class="btn btn-primary">Simpan Flyer</button></footer>
+  </form>
+</dialog>
+
+<dialog class="modal" id="modal-confirm" aria-labelledby="confirm-title">
+  <div class="modal-head"><h2 id="confirm-title">Hapus data?</h2><button type="button" class="icon-btn" data-close aria-label="Tutup"><svg class="ic"><use href="#i-x"/></svg></button></div>
+  <div class="modal-body"><p id="confirm-text"></p></div>
+  <div class="modal-foot"><button type="button" class="btn btn-ghost" data-close>Batal</button><button type="button" class="btn btn-danger" id="confirm-ok">Hapus</button></div>
+</dialog>
+
+<dialog class="modal" id="modal-password" aria-labelledby="pw-title">
+  <form id="password-form" novalidate>
+    <header class="modal-head"><h2 id="pw-title">Ganti password</h2><button type="button" class="icon-btn" data-close id="pw-close" aria-label="Tutup"><svg class="ic"><use href="#i-x"/></svg></button></header>
+    <div class="modal-body form-stack">
+      <p class="notice" id="pw-forced" hidden><svg class="ic"><use href="#i-alert"/></svg>Anda masuk dengan password default. Ganti password sekarang untuk melanjutkan.</p>
+      <label class="field"><span>Password lama</span><input type="password" name="oldPassword" autocomplete="current-password" required></label>
+      <label class="field"><span>Password baru (min. 8 karakter)</span><input type="password" name="newPassword" autocomplete="new-password" minlength="8" required></label>
+      <label class="field"><span>Ulangi password baru</span><input type="password" name="confirmPassword" autocomplete="new-password" required></label>
+      <p class="form-error" id="pw-error" role="alert" hidden></p>
+    </div>
+    <footer class="modal-foot"><button type="button" class="btn btn-ghost" data-close id="pw-cancel">Batal</button><button type="submit" class="btn btn-primary" id="pw-submit">Simpan Password</button></footer>
+  </form>
+</dialog>
+
+<dialog class="lightbox" id="lightbox" aria-label="Flyer ukuran penuh">
+  <button type="button" class="icon-btn light" data-close aria-label="Tutup"><svg class="ic"><use href="#i-x"/></svg></button>
+  <img id="lightbox-img" alt="">
+</dialog>
+
+<div class="toast-stack" id="toast-stack" aria-live="polite"></div>
+<div class="config-warning" id="config-warning" hidden></div>
+
+<script src="js/config.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/api.js"></script>
+<script src="js/demo.js"></script>
+<script src="js/public.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
