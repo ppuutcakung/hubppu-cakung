@@ -602,14 +602,31 @@ const Admin = {
   renderSettingsPreview() {
     const s = this.settingsFromForm();
     const box = $('#settings-preview');
-    const apps = this.sorted('app').filter(a => a.status === 'Tampil').slice(0, 2);
-    const sample = apps.length ? apps : [{ nama: 'Contoh aplikasi', deskripsi: 'Deskripsi singkat kartu', kategori: 'Umum' }];
+    const today = todayLocal();
+
+    // Kartu: maks. 4 aplikasi tampil; bila kurang, dilengkapi contoh agar grid 2 kolom terlihat utuh
+    const samples = [
+      { nama: 'Contoh aplikasi', deskripsi: 'Deskripsi singkat kartu', kategori: 'Umum' },
+      { nama: 'Aplikasi kedua', deskripsi: 'Deskripsi singkat kartu', kategori: 'Umum' }
+    ];
+    let apps = this.sorted('app').filter(a => a.status === 'Tampil').slice(0, 4);
+    if (apps.length < 2) apps = apps.concat(samples.slice(0, 2 - apps.length));
+
+    // Flyer: yang pertama sedang tayang (status Tampil & dalam periode)
+    const flyer = this.sorted('flyer').find(f => f.status === 'Tampil' &&
+      (!f.tanggalMulai || today >= f.tanggalMulai) && (!f.tanggalSelesai || today <= f.tanggalSelesai));
+
     box.innerHTML =
       '<header class="pub-header"><div class="pub-header-inner"><div class="brand"><div class="brand-logo" data-logo></div><div class="brand-text"><h1>' + esc(s.namaHub || 'Nama hub') + '</h1>' +
       (s.tagline ? '<p>' + esc(s.tagline) + '</p>' : '') + '</div></div></div></header>' +
-      '<div class="mini-body"><div class="apps-head"><h2 style="font-size:16px">Aplikasi Kami</h2></div><div class="app-grid">' + sample.map(a => Tpl.card(a, false)).join('') + '</div>' +
-      (s.kontakWA ? '<div class="contact-banner"><div><strong>Butuh bantuan langsung?</strong><span>' + esc(s.kontakTeks) + '</span></div><span class="contact-btn"><svg class="ic"><use href="#i-phone"/></svg>Kontak</span></div>' : '') +
-      '</div><footer class="pub-footer"><p style="font-size:11px;color:var(--muted)">' + esc(s.teksFooter) + '</p></footer>';
+      '<div class="mini-body">' +
+        '<div class="search-bar"><svg class="ic"><use href="#i-search"/></svg><span>Cari layanan…</span></div>' +
+        (flyer ? '<div class="hero">' + Tpl.slide(flyer, false) + '<div class="hero-foot"><div class="hero-dots"><button type="button" aria-selected="true" tabindex="-1"></button></div></div></div>' : '') +
+        '<div class="apps"><div class="apps-head"><h2>Aplikasi Kami</h2></div><div class="app-grid">' + apps.map(a => Tpl.card(a, false)).join('') + '</div></div>' +
+        (s.kontakWA ? '<div class="contact-banner"><div><strong>Butuh bantuan langsung?</strong><span>' + esc(s.kontakTeks) + '</span></div><span class="contact-btn"><svg class="ic"><use href="#i-phone"/></svg>Kontak</span></div>' : '') +
+      '</div>' +
+      '<footer class="pub-footer"><p class="pub-values">Cepat <i></i> Terintegrasi <i></i> Transparan</p>' +
+      '<p style="font-size:11px;color:var(--muted)">' + esc(s.teksFooter) + '</p></footer>';
     Tpl.logo($('[data-logo]', box), s);
     Tpl.logo($('#set-logo-preview'), s);
     applyTheme(box, s.warnaUtama);

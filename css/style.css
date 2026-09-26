@@ -367,6 +367,9 @@ p { margin: 0; }
 
 @media (min-width: 768px) {
   .app-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  /* Laptop/tablet: kolom cari tidak membentang selebar layar */
+  .pub-main > .search-bar { width: 100%; max-width: 560px; margin: 0 auto; min-height: 44px; }
+  .pub-main > .search-bar input { font-size: 14px; padding: 8px 0; }
   .pub-main { gap: 24px; padding-top: 24px; }
   .hero-caption h3 { font-size: 22px; line-height: 30px; }
   .hero-caption { left: 24px; bottom: 20px; right: 24px; }
@@ -608,6 +611,29 @@ tr.is-pending .col-act button { pointer-events: none; opacity: .4; }
 .phone-screen .app-card { pointer-events: none; }
 .phone-screen .contact-banner { padding: 12px; }
 .phone-screen .pub-footer { padding: 14px 12px; }
+/* Pratinjau HP selalu memakai tata letak mobile, apa pun lebar layar admin */
+.phone-screen { height: clamp(440px, calc(100vh - 220px), 620px); overflow-y: auto; scrollbar-width: thin; }
+.phone-screen .app-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 8px; }
+.phone-screen .app-card { padding: 8px 8px 10px; gap: 6px; }
+.phone-screen .app-initials { font-size: 22px; }
+.phone-screen .app-title { font-size: 13px; line-height: 17px; }
+.phone-screen .app-desc { font-size: 11px; line-height: 15px; }
+.phone-screen .app-cta { font-size: 11px; }
+.phone-screen .cat-chip { font-size: 10px; padding: 2px 8px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.phone-screen .app-meta { min-width: 0; }
+.phone-screen .apps-head h2 { font-size: 15px; line-height: 20px; }
+.phone-screen .search-bar { min-height: 38px; padding: 0 12px; box-shadow: none; }
+.phone-screen .search-bar span { font-size: 12px; color: var(--faint); }
+.phone-screen .search-bar .ic { width: 15px; height: 15px; }
+.phone-screen .hero-slide { aspect-ratio: 16 / 9 !important; }
+.phone-screen .hero-caption { left: 10px; right: 10px; bottom: 8px; gap: 4px; }
+.phone-screen .hero-caption h3 { font-size: 13px; line-height: 17px; }
+.phone-screen .hero-badge { font-size: 9px; padding: 2px 8px; }
+.phone-screen .hero-foot { padding: 6px 10px; }
+.phone-screen .contact-banner strong { font-size: 13px; line-height: 18px; }
+.phone-screen .contact-banner span { font-size: 11px; }
+.phone-screen .contact-btn { min-height: 34px; padding: 0 10px; font-size: 12px !important; }
+.phone-screen .pub-values { font-size: 11px; }
 
 /* Modal */
 .modal {
